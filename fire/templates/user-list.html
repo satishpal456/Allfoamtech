@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="pcoded-content">
+   <div class="page-header card">
+      <div class="">
+         <div class="card">
+            <div class="card-block">
+               <div class="d-inline">
+                    <h3>Users</h3>
+               </div>
+               <div class="dt-responsive table-responsive">
+                  <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Email</th>
+                           <th>Company Name</th>
+                           <th>Phone number</th>
+                           <th>points</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% for n,email,c_n,num,points,id in comb_list %}
+                           <tr>
+                              <td><a href="{% url 'view_list' id %}">{{ n }}</a></td>
+                              <td>{{ email }}</td>
+                              <td>{{ c_n }}</td>
+                              <td>{{ num }}</td>
+                              <td>{{ points }}</td>
+                              <td><a href="{% url 'view_list' id %}"><button>view</button></a></td>
+                           </tr>
+                        {% endfor %}  
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}

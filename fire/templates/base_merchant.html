@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <!-- Mirrored from colorlib.com/polygon/admindek/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2019 12:35:17 GMT -->
+   <!-- Added by HTTrack -->
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <!-- /Added by HTTrack -->
+   <head>
+      <title>color-visualizer-Dashboard</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="description" content="Admindek Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
+      <meta name="keywords" content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+      <meta name="author" content="colorlib" />
+      <link rel="icon" href="img/favicon.png" type="image/x-icon">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/waves.min.css' %}" type="text/css" media="all">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/feather.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/themify-icons.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/icofont.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/font-awesome.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/widget.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}">
+      <!-- datatables  -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.bootstrap4.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/dataTables.bootstrap4.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/buttons.dataTables.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/sweetalert.css' %}">
+   </head>
+   <body>
+        <div id="pcoded" class="pcoded">
+            <div class="pcoded-container navbar-wrapper">
+                <nav class="navbar header-navbar pcoded-header">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-container container-fluid">
+                            <ul class="nav-left">
+                                <li class="header-search">
+                                    <img src="{% static 'img/admin_logo.png' %}" class="img_logo" />
+                                </li>
+                            </ul>
+                            <ul class="nav-right">
+                                <li class="user-profile header-notification">
+                                    <a href="{% url 'logout' %}">
+                                        <i class="feather icon-user"></i> Logout
+                                    </a>
+                                  <!--   <div class="dropdown-primary dropdown customToggle">
+                                        <div class="dropdown-toggle" data-toggle="dropdown">
+                                            <i class="feather icon-user"></i> Profile
+                                            <i class="feather icon-chevron-down"></i>
+                                        </div>
+                                        <ul class=" profile-notification  dropdown-menu">
+                                            <li>
+                                                <a href="change-password.html">
+                                                    <i class="feather icon-settings"></i> Change Password
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="feather icon-user"></i> Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div> -->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="pcoded-main-container">
+                   <div class="pcoded-wrapper">
+                        <nav class="pcoded-navbar">
+                            <div class="nav-list">
+                                <div class="pcoded-inner-navbar main-menu">
+                                   <ul class="pcoded-item    pcoded-left-item">
+                                        <li class="pcoded-hasmenu">
+                                            <a href="product.html">
+                                                <span class="pcoded-micon"></span>
+                                                <span class="pcoded-mtext">Dashboard</span>
+                                            </a>
+                                        </li>
+                                        
+                                        <li class="pcoded-hasmenu">
+                                            <a href="{% url 'qr_code' %}">
+                                            <span class="pcoded-micon"></span>
+                                            <span class="pcoded-mtext">Generate QR Code</span>
+                                            </a>
+                                        </li>
+                                        <li class="pcoded-hasmenu">
+                                            <a href="{% url 'qr_code_list'%}">
+                                            <span class="pcoded-micon"></span>
+                                            <span class="pcoded-mtext">QR Code</span>
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                        {% block body %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+        <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/popper.min.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/waves.min.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/jquery.slimscroll.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/modernizr.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/css-scrollbars.js' %}"> </script> 
+        <script type="text/javascript" src="{% static 'js/common-pages.js' %}"> </script>
+          <!-- data table -->
+        <!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+        <script type="text/javascript" src="{% static 'js/jquery.dataTables.min.js' %}" ></script>
+        <script src="{% static 'js/dataTables.buttons.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/jszip.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/pdfmake.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/vfs_fonts.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/buttons.print.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/buttons.html5.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/dataTables.bootstrap4.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/dataTables.responsive.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/responsive.bootstrap4.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/data-table-custom.js' %}" type="text/javascript"></script>
+        <script type="text/javascript" src="{% static 'js/sweetalert.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
+        <script src="{% static 'js/classie.js' %}" type="text/javascript"></script>
+        <script type="text/javascript" src="{% static 'js/modalEffects.js' %}"></script>
+        <script src="{% static 'js/vertical/vertical-layout.min.js' %}" type="text/javascript"></script>
+        <script type="text/javascript" src="{% static 'js/pcoded.min.js' %}" > </script>
+        <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}" type="text/javascript"></script>
+        <script type="text/javascript" src="{% static 'js/script.min.js' %}"></script>
+        <script src="{% static 'js/rocket-loader.min.js' %}" data-cf-settings="|49" defer=""></script>
+        <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+        <script>
+             var config = {
+             apiKey: "AIzaSyCC6uEdeE_3L6KKgBePW8n77sPNir5c4Bw",
+             authDomain: "sprayer-loyalty-a3d4a.firebaseapp.com",
+             databaseURL: "https://sprayer-loyalty-a3d4a.firebaseio.com",
+             projectId: "sprayer-loyalty-a3d4a",
+             storageBucket: "sprayer-loyalty-a3d4a.appspot.com",
+             messagingSenderId: "624993131038",
+             appId: "1:624993131038:web:5e7292485eb5d29b"
+             };
+             firebase.initializeApp(config)
+        </script>
+        <!-- <script type="text/javascript">
+            $(document).ready(function() {
+                $('.customToggle').on('click', function() {
+                    $('.customToggle').addClass('show');
+                    $('.customToggle').children().next().addClass('show');
+                    $('.customToggle').addClass('toggleOpen');
+                    $('.toggleOpen').removeClass('customToggle');
+                 });
+            });
+            $(document).on('click', '.toggleOpen', function() {
+                alert('1');
+                $('.toggleOpen').removeClass('show');
+                $('.toggleOpen').children().next().removeClass('show');
+                $('.toggleOpen').addClass('customToggle');
+                $('.customToggle').removeClass('toggleOpen');
+             });
+        </script> -->
+        <script type="text/javascript">
+            $('.datatables-example').dataTable( {
+                
+            } );
+        </script>
+    </body>
+</html>

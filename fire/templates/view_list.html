@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+            <div class="pcoded-content">
+            	<!-- <div class="page-header card">
+<div class="row align-items-center">
+<div class="col-lg-8">
+<div class="page-header-title">
+
+<div class="d-inline">
+<h5>UserDetails</h5>
+
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="page-header-breadcrumb">
+<ul class=" breadcrumb breadcrumb-title">
+<li class="breadcrumb-item">
+<a href="Dashboard.html"><i class="feather icon-home"></i></a>
+</li>
+<li class="breadcrumb-item"><a href="#!">Users</a> </li>
+</ul>
+</div>
+</div>
+</div>
+</div> -->
+             <!--user details   -->
+                  <div class="page-header card text-center">
+                  <div class="row">
+                     <div class="col-sm-12">
+                        <form class="md-float-material form-material">
+                           <div class="auth-box card  text-left">
+                              <div class=" mr-3 ml-3">
+                                 <div class="row  ">
+                                    <div class="col-sm-12 card-block ">
+                                       <a href="{% url 'user_list' %}"  ><h4 class="text-left" style="padding-bottom: 10px; font-weight: bold;"><i class="fa fa-chevron-left" aria-hidden="true"></i>
+ {{ name }}</h4></a>
+                                  
+                                       <div class="row">
+                        <div class="col-lg-12">
+                          <div class="row ">
+                            <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                              <div class="image prop-img">
+                                <img src="https://dummyimage.com/120" alt="">
+
+                              </div>
+                              {% if status == 'true' %}
+                               <a href="{% url 'ublock' d_id %}"><button type="button" id="block_user" class="btn btn-primary  text-center ml-4 mt-3  waves-effect text-center m-b-20">Block 
+                                       </button> </a>
+                               {% endif %}
+                              {% if status == 'false' %}
+                                <a href="{% url 'u_unblock' d_id %}"><button type="button" id="unblock_user" class="btn btn-danger  text-center ml-4 mt-3  waves-effect text-center m-b-20">UnBlock
+                                       </button></a>
+                              {% endif %}
+                              
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 detail-title-b">
+                              <p><span>Name:</span> {{ name }}
+                              </p>
+                              <p><span>Email:</span> {{ email }}
+                              </p>
+                               <p><span>Phone:</span> {{ number }}
+                              </p>
+                                <p><span>Company:</span> {{ companyName }}
+                              </p>
+                               <p><span>Refer code:</span> {{ referralUser }}
+                              </p>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 detail-title-b">
+                               <p><span>Address:</span> {{ address }}
+                              </p>
+                               <p><span>City:</span> {{ city }}
+                              </p>
+                                <p><span>State:</span> {{ state }}
+                              </p>
+                                <p><span>zip:</span> {{ zip_code }}
+                              </p>
+                           
+                            </div>
+                          </div>
+                        </div>
+                      </div><br>
+                                  <div class="row">
+                                   <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 detail-title-b">
+                                <p><span>Refered from:  </span>{{ referralFrnd }}</p>
+                                       
+                                          <p><span>Points:</span>{{ points }}
+                              </p>
+                           
+                            </div>
+                                  </div>
+                     
+                                     
+                                    </div>
+                                 </div>
+                        </form>
+                        </div>
+                        </div>
+                     </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+<!-- <div class="modal fade" id="default-Modal" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title">Modal title</h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<h5>Static Modal</h5>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary waves-effect waves-light ">Save changes</button>
+</div>
+</div>
+</div>
+</div>
+  
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    var config = {
+    apiKey: "AIzaSyCC6uEdeE_3L6KKgBePW8n77sPNir5c4Bw",
+    authDomain: "sprayer-loyalty-a3d4a.firebaseapp.com",
+    databaseURL: "https://sprayer-loyalty-a3d4a.firebaseio.com",
+    projectId: "sprayer-loyalty-a3d4a",
+    storageBucket: "sprayer-loyalty-a3d4a.appspot.com",
+    messagingSenderId: "624993131038",
+    appId: "1:624993131038:web:5e7292485eb5d29b"
+};
+  
+  
+
+  </script> -->
+  
+{% endblock %}

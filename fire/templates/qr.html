@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load qr_code %}
+{% block body %}
+
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h5>UserDetails</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                    <ul class=" breadcrumb breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="Dashboard.html"><i class="feather icon-home"></i></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#!">Users</a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-header card">
+        <div class="">
+            <div class="card">
+                <div class="card-block">
+                    <form method="post" class='md-float-material customForm form-material' id="qr_form" data-qr-url="{% url 'post_generate_qr' %}">
+                        {% csrf_token %}
+                        <div class="auth-box card">
+                            <div class="card-block">
+                                
+                                <div class="form-group form-primary">
+                                    <input type="text" id="product_name" name="product_name" class="form-control" required="">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label">Product Name</label>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input type="text" id="points" name="points" class="form-control" required="">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label">Points</label>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input type="text" id="manufacturer" name="manufacturer" class="form-control" required="">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label">Manufacturer Name</label>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input type="url" id="guidelines" name="guidelines" class="form-control" required="">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label">Guidelines (Please Enter the link)</label>
+                                    
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input type="file" name="file[]" id="files" class="form-control" required="">
+                                    <input type="hidden" name="url" id="url">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label">Image</label>
+                                    <!-- <button type="button" class="btn btn-primary" onclick="uploadimageDemo()">Upload</button>                                     -->
+                                </div>
+                                <div class="row m-t-30">
+                                    <div class="col-md-12">
+                                        <input  type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" value="create QR code" onclick="uploadimageDemo()">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       <!--  Product Name : <input type="text" name="product_name"><br><br>
+                        Points : <input type="text" name="points" id="points"><br><br>
+                        <input type="hidden" name="points_url" id='points_url'>
+                        Manufacturer Name : <input type="text" name="manufacturer"><br><br>
+                        Guidelines : <input type="url" name="guidelines">Please Enter the link<br><br>
+                        Image : <input type="file" name="file[]" id="files">
+                        <input type="hidden" name="url" id="url">
+                        <button type="button" onclick="uploadimageDemo()">Upload</button><br><br>
+                        <button type='submit' class='btn btn-primary' >Create QR</button>
+ -->
+
+                    </form>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+        var config = {
+        apiKey: "AIzaSyCC6uEdeE_3L6KKgBePW8n77sPNir5c4Bw",
+        authDomain: "sprayer-loyalty-a3d4a.firebaseapp.com",
+        databaseURL: "https://sprayer-loyalty-a3d4a.firebaseio.com",
+        storageBucket: "gs://sprayer-loyalty-a3d4a.appspot.com",
+        messagingSenderId: "624993131038",
+        };
+        firebase.initializeApp(config);
+      // Get a reference to the storage service, which is used to create references in your storage bucket
+        function uploadimageDemo(){
+            console.log('uploadimage')
+            var storage = firebase.storage();
+            var file = document.getElementById('files').files[0];
+            var storageRef = storage.ref();
+            var thisref = storageRef.child('barrelImages').child(file.name).put(file);
+            thisref.on('state_changed',function(snapshot){
+                console.log("file uploaded succesfully");
+            },
+
+            function(error){
+            },
+
+            function(){
+                console.log('thisref.snapshot--->',thisref.snapshot)
+                var downloadURL = thisref.snapshot.downloadURL;
+                console.log("got url")
+                document.getElementById("url").value = downloadURL;
+
+                var url_link = $('#qr_form').attr("data-qr-url");
+                var product_name = $('#product_name').val();
+                var points = $('#points').val();
+                var manufacturer = $('#manufacturer').val();
+                var guidelines = $('#guidelines').val();
+                var img_url = downloadURL
+                var csrf_token = $("input[name=csrfmiddlewaretoken]").val();
+
+                console.log('----url-link---',url_link)
+                console.log('----',product_name)
+                console.log('-----points---',points)
+                console.log('---manufacturer--',manufacturer)
+                console.log('---guidelines--',guidelines)
+                console.log('----img-url---',img_url)
+                console.log('----csrf_token---',csrf_token)
+
+                $.ajax({
+                   url: url_link,
+                   dataType: 'text',
+                   data: {
+                        'csrf_token':csrf_token,
+                        'product_name':product_name,
+                        'points':points,
+                        'manufacturer':manufacturer,
+                        'guidelines':guidelines,
+                        'img_url':img_url,
+                   },
+                   success: function(data){
+                    console.log('success')
+                   }
+                });
+            });
+
+            
+        }
+</script>
+{% endblock %}
+

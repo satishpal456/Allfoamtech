@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="pcoded-content">
+   <div class="page-header card">
+      <div class="">
+         <div class="card">
+            <div class="card-block">
+               <div class="d-inline">
+                    <h3>Merchants</h3>  <a href="{% url 'add_merchant' %}"><button>Add Merchant</button></a>
+               </div>
+               <div class="dt-responsive table-responsive">
+                  <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Email</th>
+                           <th>Phone</th>
+                           <th>Address</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% for name,email,phone,address,id in comb_list %}
+                           <tr>
+                              <td>{{ name }}</td>
+                              <td>{{ email }}</td>
+                              <td>{{ phone }}</td>
+                              <td>{{ address }}</td>
+                              <td><button>view</button></td>
+                           </tr>
+                        {% endfor %}  
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}
