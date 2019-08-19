@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "" as baseUrl %}
+{% block body %}
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="">
+            <div class="card">
+                <div class="card-block">
+                    <div class="d-inline">
+                        <h3>Products</h3>
+                        {% if is_merchant %}
+                        <a href="{% url 'add_product' %}"><button class="btn btn-primary">Add Products</button></a>
+                        {% endif %}
+                    </div>
+                    <div class="dt-responsive table-responsive">  
+                        <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
+                     <thead>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Image</th>
+                        <th>Action</th>                            
+                     </thead>
+                     <tbody>
+                         {% for p_id,p_name,i,d_id in comb_list %}
+                            <tr>
+                                <td>{{ p_id }}</td>
+                                <td>{{ p_name }}</td>
+                                <td><img src="{{ i }}" width="140px"></td>
+                                <td><button class="btn btn-success" onclick="alert('work in progress..!!')">Details</button></td>
+                            </tr>
+                        {% endfor %}
+                     </tbody>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

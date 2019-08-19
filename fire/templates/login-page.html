@@ -139,13 +139,13 @@
         <script type="text/javascript" src="{% static 'js/common-pages.js' %}"></script>
         <!-- <script src="{% static 'js/rocket-loader.min.js' %}" data-cf-settings="|49" defer=""></script> -->
         <script src="{% static '/js/jquery.toastmessage.js' %}"></script>
-        {% if session_error %}{{ session_error}}
+        {% if session_error %}
             <script type="text/javascript">
                 $(document).toastmessage('showErrorToast', "Ooops! user log out please signIn  again.");
                 console.log('hii');
             </script>
         {% endif %}
-        {% if login_error %}{{login_error}}
+        {% if login_error %}
             <script type="text/javascript">
                 $(document).toastmessage('showErrorToast', "Invalid email and password");
                 console.log('hii');

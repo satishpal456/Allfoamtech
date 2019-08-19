@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "" as baseUrl %}
+{% block body %}
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="">
+            <div class="card">
+                <div class="card-block">
+                    <div class="d-inline">
+                        <h3>Manage Batch</h3>
+                        {% if is_merchant %}
+                        <button onclick="alert('Add new batch form is in progress..!!!')" id="new_batch" class="btn btn-primary">New Batch</button>
+                        {% endif %}
+                    </div>
+                    <div class="dt-responsive table-responsive">  
+                        <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
+                            <thead>
+                                <th>Batch ID</th>
+                                <th>Action</th>                            
+                            </thead>
+                            <tbody>
+                                {% for b_id,p_id,q in comb_list %}
+                                    <tr>
+                                        <td>{{ b_id }}</td>
+                                        <td><a href="{% url 'batch_view' b_id %}"><button class="btn btn-success" id="view" >View</button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

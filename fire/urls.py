@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
+# from rest_framework import as_view
 
 urlpatterns = [
     path('', views.login_page, name="login_page"),
     path('log_in/', views.log_in, name='log_in'),
+    path('merchant_login_page/', views.merchant_login_page, name='merchant_login_page'),
     path('dashboard/', views.dashboard, name="dashboard"),
     path('logout/', views.logout, name='logout'),
     path('user_list/', views.user_list, name='user_list'),
@@ -33,6 +35,18 @@ urlpatterns = [
     path('add_ques/', views.add_ques, name='add_ques'),
     path('merchant_list/', views.merchant_list, name='merchant_list'),
     path('add_merchant/', views.add_merchant, name='add_merchant'),
+    path('merchant_details/<str:id>/', views.merchant_details, name='merchant_details'),
+    path('mblock/<str:m_id>/', views.mblock, name='mblock'),
+    path('m_unblock/<str:m_id>/', views.m_unblock, name='m_unblock'),
+    path('product_list/', views.product_list, name='product_list'),
+    path('add_product/', views.add_product, name='add_product'),
+    path('post_product/', views.post_product, name='post_product'),
+    path('batch/', views.batch, name='batch'),
+    path('batch_view/<str:b_id>/', views.batch_view, name='batch_view'),
+
+    # path('get_user', views.get),
+
+
     
 
 

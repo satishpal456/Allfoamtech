@@ -2846,7 +2846,7 @@ table tbody .border-bottom-info td,table tbody .border-bottom-info th,table thea
     height:100%
 }
 .pcoded[theme-layout=vertical] .pcoded-navbar[pcoded-navbar-position=fixed]{
-    top:70px
+      top: 89px;
 }
 .pcoded[theme-layout=vertical] .pcoded-content{
     position:relative;
@@ -9300,3 +9300,33 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,table.dataTa
 .customForm {
     margin-top: 5.5%;
 }
+ .detail-title-b p span {
+         width: 130px;
+         display: inline-block;
+         }
+         #video-name .form-control:focus {
+         border-color: #244289;
+         outline: none;
+         -webkit-box-shadow: none;
+         }
+         #video-name label{
+         font-weight: bold;
+         margin: 0px;
+         }
+         #video-name .question{
+         background: #f8f8f9;
+         margin: 13px;
+        padding: 15px 10px;
+         }
+         #video-name  .form-group{
+         display: flex;
+         margin-bottom: 0px;
+             align-items: center;
+         }
+         #video-name  label{
+            white-space: nowrap;
+    padding-right: 10px;
+         }
+          #video-name  .form-control{
+           height: 34px;
+         }

@@ -44,10 +44,10 @@
                             </ul>
                             <ul class="nav-right">
                                 <li class="user-profile header-notification">
-                                    <a href="{% url 'logout' %}">
+                                    <a href="{% url 'logout' %}"> {% if is_admin %} admin {% endif %} {% if is_merchant %} merchant {% endif %}
                                         <i class="feather icon-user"></i> Logout
                                     </a>
-                                  <!--   <div class="dropdown-primary dropdown customToggle">
+                                    <!-- <div class="dropdown-primary dropdown customToggle">
                                         <div class="dropdown-toggle" data-toggle="dropdown">
                                             <i class="feather icon-user"></i> Profile
                                             <i class="feather icon-chevron-down"></i>
@@ -59,8 +59,8 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <i class="feather icon-user"></i> Logout
+                                                <a href="{% url 'logout' %}">
+                                                    <i class="feather icon-chevron-down"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -82,37 +82,39 @@
                                                 <span class="pcoded-mtext">Dashboard</span>
                                             </a>
                                         </li>
-                                        <li class="pcoded-hasmenu ">
-                                            <a href="{% url 'user_list' %}">
-                                            <span class="pcoded-micon"></span>
-                                            <span class="pcoded-mtext">Users</span>
-                                            </a>
-                                        </li>
-                                        <li class="pcoded-hasmenu">
-                                            <a href="{% url 'video_details_home' %}">
-                                            <span class="pcoded-micon"></span>
-                                            <span class="pcoded-mtext">Videos</span>
-                                            </a>
-                                        </li>
-                                        <li class="pcoded-hasmenu">
-                                            <a href="Products.html">
-                                            <span class="pcoded-micon"></span>
-                                            <span class="pcoded-mtext">Products</span>
-                                            </a>
-                                        </li>
+                                        {% if is_admin %}
                                         
-                                        <li class="pcoded-hasmenu">
-                                            <a href="{% url 'qr_code_list'%}">
-                                            <span class="pcoded-micon"></span>
-                                            <span class="pcoded-mtext">QR Code</span>
-                                            </a>
-                                        </li>
                                         <li class="pcoded-hasmenu">
                                             <a href="{% url 'merchant_list'%}">
                                             <span class="pcoded-micon"></span>
                                             <span class="pcoded-mtext">Merchant</span>
                                             </a>
                                         </li>
+                                        <li class="pcoded-hasmenu ">
+                                            <a href="{% url 'user_list' %}">
+                                            <span class="pcoded-micon"></span>
+                                            <span class="pcoded-mtext">Users</span>
+                                            </a>
+                                        </li>
+                                        
+                                        {% endif %}
+
+                                        {% if is_merchant %}
+                                        <li class="pcoded-hasmenu">
+                                            <a href="{% url 'product_list'%}">
+                                            <span class="pcoded-micon"></span>
+                                            <span class="pcoded-mtext">Products</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="pcoded-hasmenu">
+                                            <a href="{% url 'batch'%}">
+                                            <span class="pcoded-micon"></span>
+                                            <span class="pcoded-mtext">Manage Batch</span>
+                                            </a>
+                                        </li>
+                                        {% endif %}                                       
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -187,7 +189,6 @@
         </script> -->
         <script type="text/javascript">
             $('.datatables-example').dataTable( {
-                
             } );
         </script>
     </body>

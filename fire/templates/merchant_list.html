@@ -7,7 +7,7 @@
          <div class="card">
             <div class="card-block">
                <div class="d-inline">
-                    <h3>Merchants</h3>  <a href="{% url 'add_merchant' %}"><button>Add Merchant</button></a>
+                    <h3>Merchants</h3>  <a href="{% url 'add_merchant' %}"><button class="btn btn-primary">Add Merchant</button></a>
                </div>
                <div class="dt-responsive table-responsive">
                   <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
@@ -27,7 +27,7 @@
                               <td>{{ email }}</td>
                               <td>{{ phone }}</td>
                               <td>{{ address }}</td>
-                              <td><button>view</button></td>
+                              <td><a href="{% url 'merchant_details' id %}"><button class="btn btn-primary">View</button> </td>
                            </tr>
                         {% endfor %}  
                      </tbody>
